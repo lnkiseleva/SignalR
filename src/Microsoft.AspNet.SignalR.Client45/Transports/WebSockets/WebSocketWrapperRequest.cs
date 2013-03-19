@@ -51,6 +51,18 @@ namespace Microsoft.AspNet.SignalR.Client.Transports
             }
         }
 
+        public WebHeaderCollection Headers
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+                _clientWebSocket.Options.SetRequestHeader(null, null);
+            }
+        }
+
         public IWebProxy Proxy
         {
             get

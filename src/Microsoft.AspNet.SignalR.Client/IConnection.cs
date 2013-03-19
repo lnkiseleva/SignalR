@@ -28,6 +28,7 @@ namespace Microsoft.AspNet.SignalR.Client
 
         bool ChangeState(ConnectionState oldState, ConnectionState newState);
 
+        WebHeaderCollection Headers { get; set; }
         ICredentials Credentials { get; set; }
         CookieContainer CookieContainer { get; set; }
         TextWriter Trace { get; }

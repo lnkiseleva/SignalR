@@ -3,6 +3,7 @@ using Microsoft.AspNet.SignalR.Client.Hubs;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Microsoft.AspNet.SignalR.Client.Samples
 {
@@ -60,6 +61,9 @@ namespace Microsoft.AspNet.SignalR.Client.Samples
         private static void RunStreamingSample()
         {
             var connection = new Connection("http://localhost:40476/raw-connection");
+
+            connection.Headers = new WebHeaderCollection();
+            connection.Headers.Add(HttpRequestHeader.Warning, "Warning");
 
             connection.Received += data =>
             {

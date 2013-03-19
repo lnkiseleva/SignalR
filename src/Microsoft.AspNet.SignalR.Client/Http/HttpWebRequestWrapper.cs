@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.md in the project root for license information.
 
+using System.Collections.Generic;
 using System.Net;
 
 namespace Microsoft.AspNet.SignalR.Client.Http
@@ -7,10 +8,13 @@ namespace Microsoft.AspNet.SignalR.Client.Http
     public class HttpWebRequestWrapper : IRequest
     {
         private readonly HttpWebRequest _request;
+        private HashSet<HttpRequestHeader> _restrictedHeaders;
 
         public HttpWebRequestWrapper(HttpWebRequest request)
         {
             _request = request;
+            HttpRequestHeader[] requestArray = { HttpRequestHeader.Accept, HttpRequestHeader.ContentType};
+            _restrictedHeaders = new HashSet<HttpRequestHeader>(requestArray);
         }
 
         public string UserAgent
@@ -46,6 +50,18 @@ namespace Microsoft.AspNet.SignalR.Client.Http
             set
             {
                 _request.CookieContainer = value;
+            }
+        }
+
+        public WebHeaderCollection Headers
+        {
+            get
+            {
+                return _request.Headers;
+            }
+            set
+            {
+                _request.Headers = value;
             }
         }
 

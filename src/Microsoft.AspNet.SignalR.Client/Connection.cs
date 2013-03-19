@@ -210,6 +210,8 @@ namespace Microsoft.AspNet.SignalR.Client
         /// </summary>
         public ICredentials Credentials { get; set; }
 
+        public WebHeaderCollection Headers { get; set; }
+
 #if !SILVERLIGHT
         /// <summary>
         /// Gets of sets proxy information for the connection.
@@ -638,6 +640,12 @@ namespace Microsoft.AspNet.SignalR.Client
             {
                 request.CookieContainer = CookieContainer;
             }
+
+            if (Headers != null)
+            {
+                request.Headers = Headers;
+            }
+
 #if !SILVERLIGHT
             if (Proxy != null)
             {

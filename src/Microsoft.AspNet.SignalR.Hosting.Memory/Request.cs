@@ -44,6 +44,12 @@ namespace Microsoft.AspNet.SignalR.Hosting.Memory
             set;
         }
 
+        public WebHeaderCollection Headers
+        {
+            get;
+            set;
+        }
+
         public IWebProxy Proxy
         {
             get;

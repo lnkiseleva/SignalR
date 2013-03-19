@@ -24,6 +24,11 @@ namespace Microsoft.AspNet.SignalR.Client.Http
         /// </summary>
         CookieContainer CookieContainer { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        WebHeaderCollection Headers { get; set; }
+
 #if !SILVERLIGHT
         /// <summary>
         /// The proxy information for this request.
