@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using System.Net;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Microsoft.AspNet.SignalR.Client.Http
 {
@@ -55,6 +57,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
 
         public WebHeaderCollection Headers
         {
+            // Add logic to check the type of the header and see if it needs to set separately
             get
             {
                 return _request.Headers;
@@ -62,6 +65,18 @@ namespace Microsoft.AspNet.SignalR.Client.Http
             set
             {
                 _request.Headers = value;
+            }
+        }
+
+        public X509CertificateCollection ClientCertificates
+        {
+            get
+            {
+                return _request.ClientCertificates;
+            }
+            set
+            {
+                _request.ClientCertificates = value;
             }
         }
 
