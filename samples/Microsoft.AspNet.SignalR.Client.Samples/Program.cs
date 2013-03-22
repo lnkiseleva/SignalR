@@ -62,8 +62,8 @@ namespace Microsoft.AspNet.SignalR.Client.Samples
         {
             var connection = new Connection("http://localhost:40476/raw-connection");
 
-            connection.Headers = new WebHeaderCollection();
-            connection.Headers.Add(HttpRequestHeader.Warning, "Warning");
+            connection.Headers = new Dictionary<string, string>();
+            connection.Headers.Add(HttpRequestHeader.Accept.ToString(),"accept");
 
             connection.Received += data =>
             {

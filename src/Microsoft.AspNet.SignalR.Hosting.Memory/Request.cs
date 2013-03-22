@@ -44,7 +44,7 @@ namespace Microsoft.AspNet.SignalR.Hosting.Memory
             set;
         }
 
-        public WebHeaderCollection Headers
+        public IDictionary<string, string> Headers
         {
             get;
             set;

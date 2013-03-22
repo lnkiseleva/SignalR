@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -10,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-// using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -212,13 +211,18 @@ namespace Microsoft.AspNet.SignalR.Client
         /// </summary>
         public ICredentials Credentials { get; set; }
 
+<<<<<<< HEAD
+        public WebHeaderCollection Headers { get; set; }
+
+=======
         /// <summary>
         /// Gets and sets headers for the request
         /// </summary>
-        public IDictionary<string, string> Headers { get; set; }
+        public WebHeaderCollection Headers { get; set; }
 
-        //public X509CertificateCollection ClientCertificates { get; set; }
+        public X509CertificateCollection ClientCertificates { get; set; }
 
+>>>>>>> temp-commit
 #if !SILVERLIGHT
         /// <summary>
         /// Gets of sets proxy information for the connection.
@@ -648,17 +652,23 @@ namespace Microsoft.AspNet.SignalR.Client
                 request.CookieContainer = CookieContainer;
             }
 
+<<<<<<< HEAD
+=======
             // Headers should never be null
+>>>>>>> temp-commit
             if (Headers != null)
             {
                 request.Headers = Headers;
             }
 
-            //if (ClientCertificates != null)
-            //{
-            //    request.ClientCertificates = ClientCertificates;
-            //}
+<<<<<<< HEAD
+=======
+            if (ClientCertificates != null)
+            {
+                request.ClientCertificates = ClientCertificates;
+            }
 
+>>>>>>> temp-commit
 #if !SILVERLIGHT
             if (Proxy != null)
             {
